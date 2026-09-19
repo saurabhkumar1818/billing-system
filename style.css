@@ -1,1 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666;
+}
+
+
+/* Cards */
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Forms */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
+input {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+
+/* Radio Buttons */
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    min-height: 42px;
+}
+
+.radio-group label {
+    font-weight: normal;
+}
+
+.radio-group input {
+    margin-right: 6px;
+}
+
+
+/* Buttons */
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    background: #16a34a;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #15803d;
+}
+
+.danger-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.danger-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* Table */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #f1f5f9;
+    font-weight: 600;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+.edit-btn {
+    background: #f59e0b;
+    color: white;
+    padding: 7px 12px;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+
+/* Summary */
+
+.summary-card {
+    max-width: 500px;
+    margin-left: auto;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.discount-row input {
+    width: 150px;
+}
+
+.grand-total {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+/* Actions */
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+
+/* Invoice */
+
+.invoice {
+    display: none;
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #222;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.invoice-header h2 {
+    margin-bottom: 5px;
+}
+
+.invoice-details {
+    text-align: right;
+}
+
+.customer-display {
+    margin-bottom: 20px;
+}
+
+.invoice-total {
+    margin-left: auto;
+    width: 350px;
+    margin-top: 20px;
+}
+
+.invoice-total > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.final-total {
+    border-top: 2px solid #222;
+    margin-top: 10px;
+    padding-top: 12px !important;
+    font-size: 20px;
+}
+
+.thank-you {
+    text-align: center;
+    margin-top: 35px;
+    font-weight: bold;
+}
+
+
+/* Empty table */
+
+.empty-message {
+    color: #777;
+    padding: 25px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+
+    .invoice-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .invoice-details {
+        text-align: left;
+    }
+
+}
+
+@media print {
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    body > .container > *:not(.invoice) {
+        display: none !important;
+    }
+
+    .invoice {
+        display: block !important;
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .invoice table {
+        width: 100%;
+    }
+
+    .invoice-header {
+        border-bottom: 2px solid #000;
+    }
+
+}
