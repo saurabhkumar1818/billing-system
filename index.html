@@ -249,19 +249,55 @@
         <!-- Action Buttons -->
         <section class="actions">
 
-            <button class="primary-btn" id="generateBill">
-                Generate Bill
-            </button>
+    <button class="primary-btn" id="generateBill">
+        Generate Bill
+    </button>
 
-            <button class="secondary-btn" id="printBill">
-                Print Bill
-            </button>
+    <button class="secondary-btn" id="printBill">
+        Print Bill
+    </button>
 
-            <button class="danger-btn" id="clearBill">
-                Clear Bill
-            </button>
+    <button class="secondary-btn" id="viewHistory">
+        Bill History
+    </button>
 
-        </section>
+    <button class="danger-btn" id="clearBill">
+        Clear Bill
+    </button>
+
+</section>
+
+<section class="card" id="historySection">
+
+    <h2>Bill History</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Invoice</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="billHistory">
+
+                <!-- Saved bills will appear here -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
 
 
         <!-- Invoice -->

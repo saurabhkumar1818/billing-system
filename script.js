@@ -439,6 +439,67 @@ discountInput.addEventListener(
     calculateBill
 );
 
+// ==========================================
+// SAVE BILL TO LOCAL STORAGE
+// ==========================================
+
+function saveBill() {
+
+    const savedBills =
+        JSON.parse(localStorage.getItem("bills")) || [];
+
+    let subtotal = 0;
+    let totalGST = 0;
+
+    products.forEach(function (product) {
+
+        subtotal += product.baseAmount;
+        totalGST += product.gstAmount;
+
+    });
+
+    const discount =
+        parseFloat(discountInput.value) || 0;
+
+    let grandTotal =
+        subtotal + totalGST - discount;
+
+    if (grandTotal < 0) {
+        grandTotal = 0;
+    }
+
+    const bill = {
+
+        invoiceNumber: invoiceNumber.value,
+
+        customerName:
+            customerName.value.trim() || "Walk-in Customer",
+
+        date: new Date().toLocaleDateString("en-IN"),
+
+        products: products,
+
+        subtotal: subtotal,
+
+        gst: totalGST,
+
+        discount: discount,
+
+        grandTotal: grandTotal
+
+    };
+
+    savedBills.push(bill);
+
+    localStorage.setItem(
+        "bills",
+        JSON.stringify(savedBills)
+    );
+
+    alert("Bill saved successfully!");
+
+}
+
 
 // ==========================================
 // GENERATE BILL / INVOICE
@@ -615,6 +676,8 @@ document
         ).scrollIntoView({
             behavior: "smooth"
         });
+
+        saveBill();
 
     });
 

@@ -330,3 +330,8 @@ th {
     }
 
 }
+
+
+#historySection {
+    display: none;
+}
